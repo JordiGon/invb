@@ -31,8 +31,8 @@ import lombok.ToString;
 @ToString
 @Table(name = "suministros")
 public class Suministros implements Serializable {
-    
-     private static final long serialVersionUID = 1L;
+
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_suministros")
@@ -44,19 +44,17 @@ public class Suministros implements Serializable {
     @Column(name = "descripcion_sum")
     private String descripcionSuministro;
     @Column(name = "valor_unitario_sum")
-    private String valorUnitarioSuminstro;
+    private Double valorUnitarioSuminstro;
     @Column(name = "donacion_sum")
     private String donacionSuministro;
-    @JoinColumn(name= "idtiposum_fk" , referencedColumnName = "id_tipo_sum" )
+    @JoinColumn(name = "idtiposum_fk", referencedColumnName = "id_tipo_sum")
     @ManyToOne(optional = false)
-    private TipoSuministro tipoSuministro ;
-    @JoinColumn(name= "idestados_fk" , referencedColumnName = "id_estados" )
+    private TipoSuministro tipoSuministro;
+    @JoinColumn(name = "idestados_fk", referencedColumnName = "id_estados")
     @ManyToOne(optional = false)
     private Estado estado;
-    @JoinColumn(name= "idcategoriassum_fk" , referencedColumnName = "id_categorias_sum" )
+    @JoinColumn(name = "idcategoriassum_fk", referencedColumnName = "id_categorias_sum")
     @ManyToOne(optional = false)
     private CategoriaSuministro catSuministro;
-    
-    
-    
+
 }
