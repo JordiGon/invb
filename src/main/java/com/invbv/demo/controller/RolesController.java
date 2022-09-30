@@ -21,16 +21,16 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Andres Solorzano
  */
 @RestController
-@RequestMapping("/Roles")
+@RequestMapping("/roles")
 public class RolesController {
-    
+
     @Autowired
     RolSvc rolSvc;
-    
+
     @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public responseApi findAll() {
-       
+
         return rolSvc.findAllStatus();
     }
-    
+
 }

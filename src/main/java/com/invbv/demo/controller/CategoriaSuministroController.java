@@ -22,21 +22,21 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Andres Solorzano
  */
 @RestController
-@RequestMapping("/CategoriaSuministro")
+@RequestMapping("/categoriasuministro")
 public class CategoriaSuministroController {
-    
+
     @Autowired
     CategoriaSuministroSvc catSumSvc;
-    
+
     @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public responseApi findAll() {
         return catSumSvc.findAll();
     }
-    
-    @PostMapping(value = "/save" , produces = MediaType.APPLICATION_JSON_VALUE)
-    public responseApi guardarUsuario(@RequestBody CategoriaSuministro catSum){
-    
+
+    @PostMapping(value = "/save", produces = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi guardarUsuario(@RequestBody CategoriaSuministro catSum) {
+
         return catSumSvc.addsala(catSum);
     }
-    
+
 }

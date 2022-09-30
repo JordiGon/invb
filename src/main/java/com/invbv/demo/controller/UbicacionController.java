@@ -19,16 +19,16 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Andres Solorzano
  */
 @RestController
-@RequestMapping("/Ubicacion")
+@RequestMapping("/ubicacion")
 public class UbicacionController {
-    
+
     @Autowired
     UbicacionSvc ubicacionSvc;
-    
+
     @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public responseApi findAll() {
-       
+
         return ubicacionSvc.findAll();
     }
-    
+
 }

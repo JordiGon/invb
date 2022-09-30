@@ -21,16 +21,16 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Andres Solorzano
  */
 @RestController
-@RequestMapping("/TipoMovimiento")
+@RequestMapping("/tipomovimiento")
 public class TipoMovimientoController {
-    
+
     @Autowired
     TipoMovimientoSvc tipoMovimientoSvc;
-    
+
     @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public responseApi findAll() {
-       
+
         return tipoMovimientoSvc.findAllStatus();
     }
-    
+
 }

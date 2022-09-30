@@ -23,20 +23,20 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Andres Solorzano
  */
 @RestController
-@RequestMapping("/Estado")
+@RequestMapping("/estado")
 public class EstadoController {
-     @Autowired
+    @Autowired
     private EstadoSvc estadoSvc;
-     
-      @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
+
+    @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public responseApi findAll() {
         return estadoSvc.findAllStatus();
     }
-    
-    @PostMapping(value = "/save" , produces = MediaType.APPLICATION_JSON_VALUE)
-    public responseApi guardarUsuario(@RequestBody Estado estado){
-    
+
+    @PostMapping(value = "/save", produces = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi guardarUsuario(@RequestBody Estado estado) {
+
         return estadoSvc.addEstado(estado);
     }
-    
+
 }

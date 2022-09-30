@@ -18,16 +18,16 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Andres Solorzano
  */
 @RestController
-@RequestMapping("/TipoSuministro")
+@RequestMapping("/tiposuministro")
 public class TipoSuministroController {
-    
+
     @Autowired
     TipoSuministroSvc tipoSumsvc;
-    
+
     @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public responseApi findAll() {
-       
+
         return tipoSumsvc.findAll();
     }
-    
+
 }
