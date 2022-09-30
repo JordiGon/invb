@@ -19,17 +19,17 @@ import org.springframework.stereotype.Service;
  * @author Andres Solorzano
  */
 @Service
-public class UbicacionSvcImpl implements UbicacionSvc{
-    
+public class UbicacionSvcImpl implements UbicacionSvc {
+
     @Autowired
     public UbicacionDao ubicacionDao;
 
     @Override
     public responseApi findAll() {
         try {
-            
+
             List<Ubicacion> ubicacion = ubicacionDao.findAll();
-     
+
             return new responseApi(200, "Success Query", ubicacion);
         } catch (Exception e) {
             return new responseApi(500, "Unsuccessfull Query", e);
