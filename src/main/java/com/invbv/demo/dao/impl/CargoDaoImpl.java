@@ -21,4 +21,9 @@ public class CargoDaoImpl implements ICargoDao {
         return cargoRepo.findAll();
     }
 
+    @Override
+    public Cargo save(Cargo cargo) {
+        return cargoRepo.save(cargo);
+    }
+
 }

@@ -31,7 +31,10 @@ public class RolDaoImpl implements RolDao {
         return rolRepository.findAll();
     }
 
-    
+    @Override
+    public Roles save(Roles roles) {
+        return rolRepository.save(roles);
+    }
 
-   
+
 }

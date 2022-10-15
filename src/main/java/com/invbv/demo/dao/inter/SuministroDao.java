@@ -7,6 +7,7 @@ package com.invbv.demo.dao.inter;
 
 import com.invbv.demo.model.Suministros;
 import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -14,4 +15,16 @@ import java.util.List;
  */
 public interface SuministroDao {
     List<Suministros> findAll();
+    public Suministros save (Suministros suministros);
+
+    List<Suministros> findSuministro(String name);
+    List<Suministros> findEstado(String estado);
+
+    List<Suministros> findUbicacion(String ubicacion);
+
+    Optional<Suministros> findByDbid (int id);
+
+
+
+
 }

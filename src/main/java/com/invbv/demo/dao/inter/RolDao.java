@@ -17,5 +17,6 @@ import java.util.List;
 public interface RolDao {
     
     public List<Roles> findAllStatus();
+    public Roles save(Roles roles);
     
 }

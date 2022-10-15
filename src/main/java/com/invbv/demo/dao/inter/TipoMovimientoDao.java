@@ -17,5 +17,6 @@ import java.util.List;
 public interface TipoMovimientoDao {
     
     public List<TipoMovimiento> findAllStatus();
+    public  TipoMovimiento save(TipoMovimiento tipoMovimiento);
     
 }

@@ -8,13 +8,8 @@ package com.invbv.demo.svc.impl;
 import com.invbv.demo.dao.inter.CatSumDao;
 import com.invbv.demo.dao.inter.TipoMovimientoDao;
 import com.invbv.demo.dao.inter.TipoSumDao;
-import com.invbv.demo.model.Cargo;
-import com.invbv.demo.model.CategoriaSuministro;
-import com.invbv.demo.model.Estado;
-import com.invbv.demo.model.TipoMovimiento;
+import com.invbv.demo.model.*;
 
-import com.invbv.demo.model.TipoSuministro;
-import com.invbv.demo.model.responseApi;
 import com.invbv.demo.svc.inter.CategoriaSuministroSvc;
 import com.invbv.demo.svc.inter.TipoMovimientoSvc;
 import com.invbv.demo.svc.inter.TipoSuministroSvc;
@@ -41,5 +36,16 @@ public class TipoMovimientoSvcImpl implements TipoMovimientoSvc{
             return new responseApi(500, "Unsuccessfull Query", e);
         }
     }
-    
-}
+
+    @Override
+    public responseApi addTipoMov(TipoMovimiento tipoMovimiento) {
+        try {
+            TipoMovimiento tipoMovimiento1 = tipoMovimientoDao.save(tipoMovimiento);
+            return new responseApi(200, "Success Query", tipoMovimiento1);
+        } catch (Exception e) {
+            return new responseApi(500, "Unsuccessfull Query", e);
+        }
+    }
+    }
+
+

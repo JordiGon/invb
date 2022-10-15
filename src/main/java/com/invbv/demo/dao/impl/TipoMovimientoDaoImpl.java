@@ -32,7 +32,10 @@ public class TipoMovimientoDaoImpl implements TipoMovimientoDao {
        
     }
 
-    
+    @Override
+    public TipoMovimiento save(TipoMovimiento tipoMovimiento) {
+        return tipoMovimientoRepository.save(tipoMovimiento);
+    }
 
-   
+
 }

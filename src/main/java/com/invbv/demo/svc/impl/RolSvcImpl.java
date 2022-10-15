@@ -38,7 +38,16 @@ public class RolSvcImpl implements RolSvc{
             return new responseApi(500, "Unsuccessfull Query", e);
         }
     }
-    
-        
-    
+
+    @Override
+    public responseApi addRoles(Roles roles) {
+        try {
+            Roles rol = rolDao.save(roles);
+            return new responseApi(200, "Success Query", roles);
+        } catch (Exception e) {
+            return new responseApi(500, "Unsuccessfull Query", e);
+        }
+    }
+
+
 }

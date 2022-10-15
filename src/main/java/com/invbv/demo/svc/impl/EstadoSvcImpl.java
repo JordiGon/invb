@@ -29,11 +29,10 @@ public class EstadoSvcImpl implements EstadoSvc{
     public responseApi findAllStatus() {
         try {
             
-            List<Estado> cargo = estadoDao.findAllStatus();
-            System.out.println("Estado" + cargo);
-            return new responseApi(200, "Success Query", cargo);
+            List<Estado> estado = estadoDao.findAllStatus();
+            return new responseApi(200, "Estados: ", estado);
         } catch (Exception e) {
-            return new responseApi(500, "Unsuccessfull Query", e);
+            return new responseApi(500, "No se encontro registros", e);
         }
     }
 
@@ -41,9 +40,9 @@ public class EstadoSvcImpl implements EstadoSvc{
     public responseApi addEstado(Estado estado) {
          try {
             Estado status = estadoDao.save(estado);
-            return new responseApi(200, "Success Query", status);
+            return new responseApi(200, "Registro insertado correctamente", status);
         } catch (Exception e) {
-            return new responseApi(500, "Unsuccessfull Query", e);
+            return new responseApi(500, "No se puedo insertar el estado:", e);
         }
     }
     
