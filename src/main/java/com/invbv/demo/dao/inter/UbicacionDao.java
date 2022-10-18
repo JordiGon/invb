@@ -8,6 +8,7 @@ package com.invbv.demo.dao.inter;
 import com.invbv.demo.model.TipoSuministro;
 import com.invbv.demo.model.Ubicacion;
 import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -15,4 +16,12 @@ import java.util.List;
  */
 public interface UbicacionDao {
      public List<Ubicacion> findAll();
+
+     public Optional<Ubicacion> getUbicacion(Integer id);
+
+     public Optional<Ubicacion> deleteUbicacion(Integer id);
+
+     public Ubicacion createUbicacion(Ubicacion ubicacion);
+
+     public Ubicacion updateUbicacion(Ubicacion ubicacion);
 }

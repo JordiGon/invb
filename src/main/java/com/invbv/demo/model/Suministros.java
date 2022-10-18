@@ -55,5 +55,8 @@ public class Suministros implements Serializable {
     @JoinColumn(name = "idcategoriassum_fk", referencedColumnName = "id_categorias_sum")
     @ManyToOne(optional = false)
     private CategoriaSuministro catSuministro;
+    @JoinColumn(name = "idubicaciones_fk", referencedColumnName = "id_ubicaciones")
+    @ManyToOne(optional = false)
+    private Ubicacion ubicacion;
 
 }

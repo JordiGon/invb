@@ -11,6 +11,8 @@ import com.invbv.demo.model.Ubicacion;
 import com.invbv.demo.model.responseApi;
 import com.invbv.demo.svc.inter.UbicacionSvc;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +33,53 @@ public class UbicacionSvcImpl implements UbicacionSvc {
             List<Ubicacion> ubicacion = ubicacionDao.findAll();
 
             return new responseApi(200, "Success Query", ubicacion);
+        } catch (Exception e) {
+            return new responseApi(500, "Unsuccessfull Query", e);
+        }
+    }
+
+    @Override
+    public responseApi getUbicacion(Integer id) {
+        try {
+
+            Optional<Ubicacion> ubicacion = ubicacionDao.getUbicacion(id);
+
+            return new responseApi(200, "Success Query", ubicacion);
+        } catch (Exception e) {
+            return new responseApi(500, "Unsuccessfull Query", e);
+        }
+    }
+
+    @Override
+    public responseApi deleteUbicacion(Integer id) {
+        try {
+            Optional<Ubicacion> ubicacion = ubicacionDao.deleteUbicacion(id);
+
+            return new responseApi(200, "Success Query", ubicacion);
+        } catch (Exception e) {
+            return new responseApi(500, "Unsuccessfull Query", e);
+        }
+    }
+
+    @Override
+    public responseApi createUbicacion(Ubicacion ubicacion) {
+        try {
+
+            Ubicacion aux = ubicacionDao.createUbicacion(ubicacion);
+
+            return new responseApi(200, "Success Query", aux);
+        } catch (Exception e) {
+            return new responseApi(500, "Unsuccessfull Query", e);
+        }
+    }
+
+    @Override
+    public responseApi updateUbicacion(Ubicacion ubicacion) {
+
+        try {
+
+            Ubicacion aux = ubicacionDao.updateUbicacion(ubicacion);
+            return new responseApi(200, "Success Query", aux);
         } catch (Exception e) {
             return new responseApi(500, "Unsuccessfull Query", e);
         }
