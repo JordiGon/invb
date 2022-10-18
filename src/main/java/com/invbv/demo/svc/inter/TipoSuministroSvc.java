@@ -5,6 +5,7 @@
  */
 package com.invbv.demo.svc.inter;
 
+import com.invbv.demo.model.TipoSuministro;
 import com.invbv.demo.model.responseApi;
 
 /**
@@ -14,5 +15,6 @@ import com.invbv.demo.model.responseApi;
 public interface TipoSuministroSvc {
     
     public responseApi findAll();
+    public responseApi addTipoSum(TipoSuministro tipoSuministro);
     
 }

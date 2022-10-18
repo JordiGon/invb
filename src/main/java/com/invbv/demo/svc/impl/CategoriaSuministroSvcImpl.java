@@ -32,7 +32,7 @@ public class CategoriaSuministroSvcImpl implements CategoriaSuministroSvc{
     public responseApi findAll() {
           try {
             List<CategoriaSuministro> categoriasum = catSumDao.findAll();
-            return new responseApi(200, "Success Query", categoriasum);
+            return new responseApi(200, "Categorias Suministro : ", categoriasum);
         } catch (Exception e) {
             return new responseApi(500, "Unsuccessfull Query", e);
         }
@@ -42,7 +42,7 @@ public class CategoriaSuministroSvcImpl implements CategoriaSuministroSvc{
     public responseApi addsala(CategoriaSuministro catSum) {
         try {
             CategoriaSuministro categoriasum = catSumDao.save(catSum);
-            return new responseApi(200, "Success Query", categoriasum);
+            return new responseApi(200, "Registro insertado correctamente", categoriasum);
         } catch (Exception e) {
             return new responseApi(500, "Unsuccessfull Query", e);
         }

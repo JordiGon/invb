@@ -7,9 +7,10 @@ package com.invbv.demo.dao.impl;
 
 import com.invbv.demo.dao.inter.EstadoDao;
 import com.invbv.demo.model.Estado;
-import com.invbv.demo.repository.CargoRepository;
 import com.invbv.demo.repository.EstadoRepository;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,4 +35,6 @@ public class EstadoDaoImpl implements EstadoDao {
     public Estado save(Estado estado) {
         return estadoRepository.save(estado);
     }
+
+  
 }

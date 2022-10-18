@@ -16,5 +16,6 @@ import java.util.List;
 public interface TipoSumDao {
     
     public List<TipoSuministro> findAll();
+    public TipoSuministro save(TipoSuministro tipoSuministro);
     
 }

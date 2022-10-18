@@ -27,5 +27,10 @@ public class TipoSumDaoImpl implements TipoSumDao{
     public List<TipoSuministro> findAll() {
          return tipoSumRepository.findAll();
     }
-    
+
+    @Override
+    public TipoSuministro save(TipoSuministro tipoSuministro) {
+        return tipoSumRepository.save(tipoSuministro);
+    }
+
 }

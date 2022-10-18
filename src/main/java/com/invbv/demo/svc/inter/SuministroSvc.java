@@ -5,6 +5,7 @@
  */
 package com.invbv.demo.svc.inter;
 
+import com.invbv.demo.model.Suministros;
 import com.invbv.demo.model.responseApi;
 
 /**
@@ -13,4 +14,9 @@ import com.invbv.demo.model.responseApi;
  */
 public interface SuministroSvc {
      public responseApi findAll();
+     public responseApi addSuministros(Suministros suministros);
+     public responseApi findTipoSumunistro(String name);
+     public responseApi findEstado(String estado);
+     public responseApi findUbicacion(String ubicacion);
+     public responseApi changeStatus(Suministros suministros , int id);
 }

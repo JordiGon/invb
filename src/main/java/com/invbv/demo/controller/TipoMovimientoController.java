@@ -5,6 +5,8 @@
  */
 package com.invbv.demo.controller;
 
+import com.invbv.demo.model.Suministros;
+import com.invbv.demo.model.TipoMovimiento;
 import com.invbv.demo.model.responseApi;
 import com.invbv.demo.svc.inter.SuministroSvc;
 import com.invbv.demo.svc.inter.TipoMovimientoSvc;
@@ -12,9 +14,7 @@ import com.invbv.demo.svc.inter.TipoSuministroSvc;
 import com.invbv.demo.svc.inter.UbicacionSvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  *
@@ -31,6 +31,12 @@ public class TipoMovimientoController {
     public responseApi findAll() {
 
         return tipoMovimientoSvc.findAllStatus();
+    }
+
+    @PostMapping(value = "/save", produces = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi guardarUsuario(@RequestBody TipoMovimiento tipoMovimiento) {
+
+        return tipoMovimientoSvc.addTipoMov(tipoMovimiento);
     }
 
 }

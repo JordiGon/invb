@@ -6,9 +6,9 @@
 package com.invbv.demo.dao.inter;
 
 
-import com.invbv.demo.model.CategoriaSuministro;
 import com.invbv.demo.model.Estado;
 import java.util.List;
+import java.util.Optional;
 
 /**
  *
