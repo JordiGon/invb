@@ -5,6 +5,7 @@
  */
 package com.invbv.demo.svc.inter;
 
+import com.invbv.demo.model.Ubicacion;
 import com.invbv.demo.model.responseApi;
 
 /**
@@ -13,4 +14,12 @@ import com.invbv.demo.model.responseApi;
  */
 public interface UbicacionSvc {
     public responseApi findAll();
+
+    public responseApi getUbicacion(Integer id);
+
+    public responseApi deleteUbicacion(Integer id);
+
+    public responseApi createUbicacion(Ubicacion ubicacion);
+
+    public responseApi updateUbicacion(Ubicacion ubicacion);
 }
