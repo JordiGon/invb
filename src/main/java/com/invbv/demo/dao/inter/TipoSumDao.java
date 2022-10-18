@@ -8,14 +8,22 @@ package com.invbv.demo.dao.inter;
 import com.invbv.demo.model.Cargo;
 import com.invbv.demo.model.TipoSuministro;
 import java.util.List;
+import java.util.Optional;
 
 /**
  *
  * @author Andres Solorzano
  */
 public interface TipoSumDao {
-    
+
     public List<TipoSuministro> findAll();
-    public TipoSuministro save(TipoSuministro tipoSuministro);
-    
+
+    public TipoSuministro createTipoSum(TipoSuministro tipoSuministro);
+
+    public Optional<TipoSuministro> getTipoSuministro(Integer id);
+
+    public Optional<TipoSuministro> deleteTipoSuministro(Integer id);
+
+    public TipoSuministro updateTipoSuministro(TipoSuministro tipoSuministro);
+
 }

@@ -20,9 +20,25 @@ public class CargoController {
         return cargoSvc.findAll();
     }
 
-    @PostMapping(value = "/save", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
     public responseApi guardarUsuario(@RequestBody Cargo cargo) {
 
         return cargoSvc.addCargo(cargo);
     }
+
+    @GetMapping(value = "get/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi getCargo(@PathVariable("id") Integer id) {
+        return cargoSvc.getCargo(id);
+    }
+
+    @DeleteMapping(value = "/delete/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi deleteCargo(@PathVariable("id") Integer id) {
+        return cargoSvc.deleteCargo(id);
+    }
+
+    @PutMapping(value = "/update", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi updateCargo(@RequestBody Cargo Cargo) {
+        return cargoSvc.updateCargo(Cargo);
+    }
+
 }

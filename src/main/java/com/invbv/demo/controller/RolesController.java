@@ -30,10 +30,25 @@ public class RolesController {
         return rolSvc.findAllStatus();
     }
 
-    @PostMapping(value = "/save", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
     public responseApi guardarUsuario(@RequestBody Roles roles) {
 
         return rolSvc.addRoles(roles);
+    }
+
+    @GetMapping(value = "get/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi getRoles(@PathVariable("id") Integer id) {
+        return rolSvc.getRoles(id);
+    }
+
+    @DeleteMapping(value = "/delete/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi deleteRoles(@PathVariable("id") Integer id) {
+        return rolSvc.deleteRoles(id);
+    }
+
+    @PutMapping(value = "/update", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi updateRoles(@RequestBody Roles roles) {
+        return rolSvc.updateRoles(roles);
     }
 
 }

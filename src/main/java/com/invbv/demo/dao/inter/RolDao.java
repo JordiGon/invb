@@ -5,18 +5,25 @@
  */
 package com.invbv.demo.dao.inter;
 
-
 import com.invbv.demo.model.Estado;
 import com.invbv.demo.model.Roles;
 import java.util.List;
+import java.util.Optional;
 
 /**
  *
  * @author Andres Solorzano
  */
 public interface RolDao {
-    
-    public List<Roles> findAllStatus();
-    public Roles save(Roles roles);
-    
+
+    public List<Roles> findAll();
+
+    public Roles createRol(Roles roles);
+
+    public Optional<Roles> getRoles(Integer id);
+
+    public Optional<Roles> deleteRoles(Integer id);
+
+    public Roles updateRoles(Roles roles);
+
 }

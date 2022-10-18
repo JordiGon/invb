@@ -13,8 +13,14 @@ import com.invbv.demo.model.responseApi;
  * @author Andres Solorzano
  */
 public interface CategoriaSuministroSvc {
-    
+
     public responseApi findAll();
+
     public responseApi addsala(CategoriaSuministro catSum);
-    
+
+    public responseApi getCategoriaSuministro(Integer id);
+
+    public responseApi deleteCategoriaSuministro(Integer id);
+
+    public responseApi updateCategoriaSuministro(CategoriaSuministro categoriaSuministro);
 }

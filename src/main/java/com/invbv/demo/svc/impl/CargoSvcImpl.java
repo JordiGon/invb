@@ -1,6 +1,7 @@
 package com.invbv.demo.svc.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.invbv.demo.model.CategoriaSuministro;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,10 +31,43 @@ public class CargoSvcImpl implements ICargoSvc {
     @Override
     public responseApi addCargo(Cargo cargo) {
         try {
-            Cargo cargos = CargoDao.save(cargo);
+            Cargo cargos = CargoDao.createCargo(cargo);
             return new responseApi(200, "Cargo insertado corectamente: ", cargos);
         } catch (Exception e) {
             return new responseApi(500, "No se pudo insertar cargo", e);
+        }
+    }
+
+    @Override
+    public responseApi getCargo(Integer id) {
+        try {
+
+            Optional<Cargo> Cargo = CargoDao.getCargo(id);
+
+            return new responseApi(200, "Success Query", Cargo);
+        } catch (Exception e) {
+            return new responseApi(500, "Unsuccessfull Query", e);
+        }
+    }
+
+    @Override
+    public responseApi deleteCargo(Integer id) {
+        try {
+            Optional<Cargo> Cargo = CargoDao.deleteCargo(id);
+
+            return new responseApi(200, "Success Query", Cargo);
+        } catch (Exception e) {
+            return new responseApi(500, "Unsuccessfull Query", e);
+        }
+    }
+
+    @Override
+    public responseApi updateCargo(Cargo cargo) {
+        try {
+            Cargo aux = CargoDao.updateCargo(cargo);
+            return new responseApi(200, "Success Query", aux);
+        } catch (Exception e) {
+            return new responseApi(500, "Unsuccessfull Query", e);
         }
     }
 

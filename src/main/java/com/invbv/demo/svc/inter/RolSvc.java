@@ -13,8 +13,15 @@ import com.invbv.demo.model.responseApi;
  * @author Andres Solorzano
  */
 public interface RolSvc {
-    
+
     public responseApi findAllStatus();
+
     public responseApi addRoles(Roles roles);
-    
+
+    public responseApi getRoles(Integer id);
+
+    public responseApi deleteRoles(Integer id);
+
+    public responseApi updateRoles(Roles roles);
+
 }

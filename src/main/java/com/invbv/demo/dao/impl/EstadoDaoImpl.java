@@ -20,21 +20,41 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class EstadoDaoImpl implements EstadoDao {
-    
+
     @Autowired
     private EstadoRepository estadoRepository;
 
-    
-
     @Override
     public List<Estado> findAllStatus() {
-       return estadoRepository.findAll();
+        return estadoRepository.findAll();
     }
 
     @Override
-    public Estado save(Estado estado) {
+    public Estado createEstado(Estado estado) {
         return estadoRepository.save(estado);
     }
 
-  
+    @Override
+    public Optional<Estado> getEstado(Integer id) {
+
+        return estadoRepository.findById(id);
+    }
+
+    @Override
+    public Optional<Estado> deleteEstado(Integer id) {
+        Optional<Estado> Estado = estadoRepository.findById(id);
+        if (Estado != null) {
+            estadoRepository.delete(Estado.get());
+            return Estado;
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public Estado updateEstado(Estado estado) {
+
+        return estadoRepository.saveAndFlush(estado);
+    }
+
 }

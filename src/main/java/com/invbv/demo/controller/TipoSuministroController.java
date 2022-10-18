@@ -30,10 +30,25 @@ public class TipoSuministroController {
         return tipoSumsvc.findAll();
     }
 
-    @PostMapping(value = "/save", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
     public responseApi guardarUsuario(@RequestBody TipoSuministro tipoSuministro) {
 
         return tipoSumsvc.addTipoSum(tipoSuministro);
+    }
+
+    @GetMapping(value = "get/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi getTipoSumTipoSuministro(@PathVariable("id") Integer id) {
+        return tipoSumsvc.getTipoSuministro(id);
+    }
+
+    @DeleteMapping(value = "/delete/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi deleteTipoSumTipoSuministro(@PathVariable("id") Integer id) {
+        return tipoSumsvc.deleteTipoSuministro(id);
+    }
+
+    @PutMapping(value = "/update", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi updateTipoSumTipoSuministro(@RequestBody TipoSuministro suministro) {
+        return tipoSumsvc.updateTipoSuministro(suministro);
     }
 
 }

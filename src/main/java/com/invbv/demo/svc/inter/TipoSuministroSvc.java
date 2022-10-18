@@ -13,8 +13,15 @@ import com.invbv.demo.model.responseApi;
  * @author Andres Solorzano
  */
 public interface TipoSuministroSvc {
-    
+
     public responseApi findAll();
+
     public responseApi addTipoSum(TipoSuministro tipoSuministro);
-    
+
+    public responseApi getTipoSuministro(Integer id);
+
+    public responseApi deleteTipoSuministro(Integer id);
+
+    public responseApi updateTipoSuministro(TipoSuministro tipoSuministro);
+
 }

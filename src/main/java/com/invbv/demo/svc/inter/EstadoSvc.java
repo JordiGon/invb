@@ -14,7 +14,14 @@ import com.invbv.demo.model.responseApi;
  * @author Andres Solorzano
  */
 public interface EstadoSvc {
-    
+
     public responseApi findAllStatus();
+
     public responseApi addEstado(Estado estado);
+
+    public responseApi getEstado(Integer id);
+
+    public responseApi deleteEstado(Integer id);
+
+    public responseApi updateEstado(Estado estado);
 }

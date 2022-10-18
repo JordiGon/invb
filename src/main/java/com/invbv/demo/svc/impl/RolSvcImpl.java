@@ -15,6 +15,8 @@ import com.invbv.demo.model.responseApi;
 import com.invbv.demo.svc.inter.EstadoSvc;
 import com.invbv.demo.svc.inter.RolSvc;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,15 +25,15 @@ import org.springframework.stereotype.Service;
  * @author Andres Solorzano
  */
 @Service
-public class RolSvcImpl implements RolSvc{
-     @Autowired
+public class RolSvcImpl implements RolSvc {
+    @Autowired
     RolDao rolDao;
 
     @Override
     public responseApi findAllStatus() {
         try {
-            
-            List<Roles> rol = rolDao.findAllStatus();
+
+            List<Roles> rol = rolDao.findAll();
             System.out.println("Estado" + rol);
             return new responseApi(200, "Success Query", rol);
         } catch (Exception e) {
@@ -42,12 +44,45 @@ public class RolSvcImpl implements RolSvc{
     @Override
     public responseApi addRoles(Roles roles) {
         try {
-            Roles rol = rolDao.save(roles);
-            return new responseApi(200, "Success Query", roles);
+            Roles rol = rolDao.createRol(roles);
+            return new responseApi(200, "Success Query", rol);
         } catch (Exception e) {
             return new responseApi(500, "Unsuccessfull Query", e);
         }
     }
 
+    @Override
+    public responseApi getRoles(Integer id) {
+        try {
+
+            Optional<Roles> Roles = rolDao.getRoles(id);
+
+            return new responseApi(200, "Success Query", Roles);
+        } catch (Exception e) {
+            return new responseApi(500, "Unsuccessfull Query", e);
+        }
+    }
+
+    @Override
+    public responseApi deleteRoles(Integer id) {
+        try {
+            Optional<Roles> Roles = rolDao.deleteRoles(id);
+
+            return new responseApi(200, "Success Query", Roles);
+        } catch (Exception e) {
+            return new responseApi(500, "Unsuccessfull Query", e);
+        }
+    }
+
+    @Override
+    public responseApi updateRoles(Roles roles) {
+        try {
+
+            Roles aux = rolDao.updateRoles(roles);
+            return new responseApi(200, "Success Query", aux);
+        } catch (Exception e) {
+            return new responseApi(500, "Unsuccessfull Query", e);
+        }
+    }
 
 }

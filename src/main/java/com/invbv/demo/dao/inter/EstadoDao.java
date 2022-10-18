@@ -5,7 +5,6 @@
  */
 package com.invbv.demo.dao.inter;
 
-
 import com.invbv.demo.model.Estado;
 import java.util.List;
 import java.util.Optional;
@@ -15,8 +14,15 @@ import java.util.Optional;
  * @author Andres Solorzano
  */
 public interface EstadoDao {
-    
+
     public List<Estado> findAllStatus();
-    public Estado save(Estado estado);
-    
+
+    public Estado createEstado(Estado estado);
+
+    public Optional<Estado> getEstado(Integer id);
+
+    public Optional<Estado> deleteEstado(Integer id);
+
+    public Estado updateEstado(Estado estado);
+
 }

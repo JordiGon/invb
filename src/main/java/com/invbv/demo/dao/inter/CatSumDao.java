@@ -9,14 +9,22 @@ import com.invbv.demo.model.Cargo;
 import com.invbv.demo.model.CategoriaSuministro;
 import com.invbv.demo.model.TipoSuministro;
 import java.util.List;
+import java.util.Optional;
 
 /**
  *
  * @author Andres Solorzano
  */
 public interface CatSumDao {
-    
+
     public List<CategoriaSuministro> findAll();
-    public CategoriaSuministro save(CategoriaSuministro catSum);
-    
+
+    public CategoriaSuministro createCategoria(CategoriaSuministro catSum);
+
+    public Optional<CategoriaSuministro> getCategoriaSuministro(Integer id);
+
+    public Optional<CategoriaSuministro> deleteCategoriaSuministro(Integer id);
+
+    public CategoriaSuministro updateCategoriaSuministro(CategoriaSuministro categoriaSuministro);
+
 }
