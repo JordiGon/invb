@@ -24,4 +24,9 @@ public class InventoryResponseController {
         return inventoryResponseSvc.findInventory();
     }
 
+    @GetMapping(value = "/count", produces = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi getMethodName() {
+        return inventoryResponseSvc.countActiveStatus();
+    }
+
 }

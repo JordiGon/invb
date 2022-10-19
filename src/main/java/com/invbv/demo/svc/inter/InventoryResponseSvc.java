@@ -4,4 +4,6 @@ import com.invbv.demo.model.responseApi;
 
 public interface InventoryResponseSvc {
     public responseApi findInventory();
+
+    public responseApi countActiveStatus();
 }

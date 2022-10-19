@@ -17,10 +17,17 @@ public interface SuministroSvc {
 
      public responseApi addSuministros(Suministros suministros);
 
-     public responseApi findTipoSumunistro(String name);
+     public responseApi getSuministros(Integer id);
 
-     public responseApi findEstado(String estado);
+     public responseApi deleteSuministros(Integer id);
 
-     public responseApi findUbicacion(String ubicacion);
+     public responseApi updateSuministros(Suministros suministros);
+
+     // public responseApi findTipoSumunistro(String name);
+
+     // public responseApi findEstado(String estado);
+
+     // public responseApi findUbicacion(Integer ubicacion);
+
      // public responseApi changeStatus(Suministros suministros , int id);
 }

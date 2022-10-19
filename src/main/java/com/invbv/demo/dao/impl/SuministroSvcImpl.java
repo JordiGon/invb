@@ -19,10 +19,9 @@ import org.springframework.stereotype.Service;
  * @author Andres Solorzano
  */
 @Service
-public class SuministroSvcImpl implements SuministroDao{
+public class SuministroSvcImpl implements SuministroDao {
     @Autowired
     private SuministrosRepository suministrosRepository;
-    
 
     @Override
     public List<Suministros> findAll() {
@@ -34,33 +33,47 @@ public class SuministroSvcImpl implements SuministroDao{
         return suministrosRepository.save(suministros);
     }
 
+    // @Override
+    // public List<Suministros> findSuministro(String name) {
+
+    // List<Suministros> p = suministrosRepository.findbynombre(name);
+    // return p;
+
+    // }
+
+    // @Override
+    // public List<Suministros> findEstado(String estado) {
+    // List<Suministros> status = suministrosRepository.findEstado(estado);
+    // return status;
+    // }
+
+    // @Override
+    // public List<Suministros> findUbicacion(String ubicacion) {
+    // List<Suministros> ubicacion1 =
+    // suministrosRepository.findUbicacion(ubicacion);
+    // return ubicacion1;
+    // }
+
     @Override
-    public List<Suministros> findSuministro(String name) {
-
-        List<Suministros> p = suministrosRepository.findbynombre(name);
-        return p;
-
-    }
-
-    @Override
-    public List<Suministros> findEstado(String estado) {
-        List<Suministros> status = suministrosRepository.findEstado(estado);
-        return status;
-    }
-
-    @Override
-    public List<Suministros> findUbicacion(String ubicacion) {
-        List<Suministros> ubicacion1 = suministrosRepository.findUbicacion(ubicacion);
-        return ubicacion1;
-    }
-
-    @Override
-    public Optional<Suministros> findByDbid(int id) {
+    public Optional<Suministros> findByDbid(Integer id) {
         return suministrosRepository.findById(id);
 
     }
 
+    @Override
+    public Optional<Suministros> deleteSuministros(Integer id) {
+        Optional<Suministros> Suministros = suministrosRepository.findById(id);
+        if (Suministros != null) {
+            suministrosRepository.delete(Suministros.get());
+            return Suministros;
+        } else {
+            return null;
+        }
+    }
 
-
+    @Override
+    public Suministros updateSuministros(Suministros suministros) {
+        return suministrosRepository.saveAndFlush(suministros);
+    }
 
 }

@@ -44,14 +44,22 @@ public class Suministros implements Serializable {
     private Double valorUnitarioSuminstro;
     @Column(name = "donacion_sum")
     private String donacionSuministro;
-    @JoinColumn(name = "idtiposum_fk", referencedColumnName = "id_tipo_sum")
-    @ManyToOne(optional = false)
-    private TipoSuministro tipoSuministro;
-    @JoinColumn(name = "idcategoriassum_fk", referencedColumnName = "id_categorias_sum")
-    @ManyToOne(optional = false)
-    private CategoriaSuministro catSuministro;
-    @JoinColumn(name = "idubicaciones_fk", referencedColumnName = "id_ubicaciones")
-    @ManyToOne(optional = false)
-    private Ubicacion ubicacion;
+    @Column(name = "idtiposum_fk")
+    private Integer idTipoSum;
+    @Column(name = "idcategoriassum_fk")
+    private Integer idCategorias;
+    @Column(name = "idubicaciones_fk")
+    private Integer idUbicaciones;
+    // @JoinColumn(name = "idtiposum_fk", referencedColumnName = "id_tipo_sum")
+    // @ManyToOne(optional = false)
+    // private TipoSuministro tipoSuministro;
+    // @JoinColumn(name = "idcategoriassum_fk", referencedColumnName =
+    // "id_categorias_sum")
+    // @ManyToOne(optional = false)
+    // private CategoriaSuministro catSuministro;
+    // @JoinColumn(name = "idubicaciones_fk", referencedColumnName =
+    // "id_ubicaciones")
+    // @ManyToOne(optional = false)
+    // private Ubicacion ubicacion;
 
 }

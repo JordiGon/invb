@@ -28,4 +28,19 @@ public class InventoryResponseSvcImpl implements InventoryResponseSvc {
         }
     }
 
+    @Override
+    public responseApi countActiveStatus() {
+        try {
+            List<SuministroResponse> estado = dao.findInventory();
+            Integer cantidad = 0;
+
+            for (SuministroResponse aux : estado) {
+                cantidad = aux.getActivo_baja().equals("Activo") ? cantidad + aux.getCantidad() : cantidad + 0;
+            }
+            return new responseApi(200, "Cantidad de activos: ", cantidad);
+        } catch (Exception e) {
+            return new responseApi(500, "No se encontro registros", e);
+        }
+    }
+
 }

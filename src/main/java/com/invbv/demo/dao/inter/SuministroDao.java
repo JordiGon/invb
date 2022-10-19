@@ -15,16 +15,19 @@ import java.util.Optional;
  */
 public interface SuministroDao {
     List<Suministros> findAll();
-    public Suministros save (Suministros suministros);
 
-    List<Suministros> findSuministro(String name);
-    List<Suministros> findEstado(String estado);
+    public Suministros save(Suministros suministros);
 
-    List<Suministros> findUbicacion(String ubicacion);
+    // List<Suministros> findSuministro(String name);
 
-    Optional<Suministros> findByDbid (int id);
+    // List<Suministros> findEstado(String estado);
 
+    // List<Suministros> findUbicacion(Integer ubicacion);
 
+    public Optional<Suministros> findByDbid(Integer id);
 
+    public Optional<Suministros> deleteSuministros(Integer id);
+
+    public Suministros updateSuministros(Suministros suministros);
 
 }

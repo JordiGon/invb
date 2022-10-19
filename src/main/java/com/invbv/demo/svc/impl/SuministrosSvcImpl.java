@@ -46,34 +46,72 @@ public class SuministrosSvcImpl implements SuministroSvc {
     }
 
     @Override
-    public responseApi findTipoSumunistro(String name) {
+    public responseApi getSuministros(Integer id) {
         try {
-            List<Suministros> tipoSuministro = suministroDao.findSuministro(name);
-            return new responseApi(200, "Success Query", tipoSuministro);
+
+            Optional<Suministros> suministros = suministroDao.findByDbid(id);
+
+            return new responseApi(200, "Success Query", suministros);
         } catch (Exception e) {
             return new responseApi(500, "Unsuccessfull Query", e);
         }
     }
 
     @Override
-    public responseApi findEstado(String estado) {
+    public responseApi deleteSuministros(Integer id) {
         try {
-            List<Suministros> tipoEstado = suministroDao.findEstado(estado);
-            return new responseApi(200, "Success Query", tipoEstado);
+            Optional<Suministros> sum = suministroDao.deleteSuministros(id);
+            return new responseApi(200, "Success Query", sum);
         } catch (Exception e) {
             return new responseApi(500, "Unsuccessfull Query", e);
         }
     }
 
     @Override
-    public responseApi findUbicacion(String ubicacion) {
+    public responseApi updateSuministros(Suministros suministros) {
         try {
-            List<Suministros> Ubicaciones = suministroDao.findUbicacion(ubicacion);
-            return new responseApi(200, "Success Query", Ubicaciones);
+            Suministros aux = suministroDao.updateSuministros(suministros);
+            return new responseApi(200, "Success Query", aux);
         } catch (Exception e) {
             return new responseApi(500, "Unsuccessfull Query", e);
         }
     }
+
+    // @Override
+    // public responseApi findTipoSumunistro(String name) {
+    // try {
+    // List<Suministros> tipoSuministro = suministroDao.findSuministro(name);
+    // return new responseApi(200, "Success Query", tipoSuministro);
+    // } catch (Exception e) {
+    // return new responseApi(500, "Unsuccessfull Query", e);
+    // }
+    // }
+
+    // @Override
+    // public responseApi findEstado(String estado) {
+    // try {
+    // List<Suministros> tipoEstado = suministroDao.findEstado(estado);
+    // return new responseApi(200, "Success Query", tipoEstado);
+    // } catch (Exception e) {
+    // return new responseApi(500, "Unsuccessfull Query", e);
+    // }
+    // }
+
+    // @Override
+    // public responseApi findUbicacion(Integer ubicacion) {
+    // try {
+    // List<Suministros> Ubicaciones = suministroDao.findUbicacion(ubicacion);
+    // return new responseApi(200, "Success Query", Ubicaciones);
+    // } catch (Exception e) {
+    // return new responseApi(500, "Unsuccessfull Query", e);
+    // }
+    // }
+
+    // @Override
+    // public responseApi findEstado(String estado) {
+    // // TODO Auto-generated method stub
+    // return null;
+    // }
 
     // @Override
     // public responseApi changeStatus(Suministros suministros , int id) {
