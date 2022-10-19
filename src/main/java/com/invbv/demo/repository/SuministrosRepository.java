@@ -19,28 +19,21 @@ import java.util.List;
  * @author Andres Solorzano
  */
 @Repository
-public interface SuministrosRepository extends JpaRepository<Suministros, Integer>{
+public interface SuministrosRepository extends JpaRepository<Suministros, Integer> {
 
-    @Query(
-           value = "select s.* from inventory.suministros s  inner join inventory.tipo_sum ts on ts.id_tipo_sum = s.idtiposum_fk WHERE ts.descripcion_tipo_sum = :name",
-            nativeQuery = true
+        @Query(value = "select s.* from inventory.suministros s  inner join inventory.tipo_sum ts on ts.id_tipo_sum = s.idtiposum_fk WHERE ts.descripcion_tipo_sum = :name", nativeQuery = true
 
-    )
-    List<Suministros> findbynombre(@Param("name") String name);
+        )
+        List<Suministros> findbynombre(@Param("name") String name);
 
+        @Query(value = "select * from inventory.suministros s inner join inventory.estados e on e.id_estados = s.idestados_fk where e.descripcion_estado = :estado", nativeQuery = true
 
-    @Query(
-            value = "select * from inventory.suministros s inner join inventory.estados e on e.id_estados = s.idestados_fk where e.descripcion_estado = :estado",
-            nativeQuery = true
+        )
+        List<Suministros> findEstado(@Param("estado") String estado);
 
-    )
-    List<Suministros> findEstado(@Param("estado") String estado);
+        @Query(value = "select * from inventory.suministros s inner join inventory.ubicaciones u on u.id_ubicaciones = s.ubicaciones_fk where u.ubicacion = :ubicacion", nativeQuery = true
 
-    @Query(
-            value = "select * from inventory.suministros s inner join inventory.ubicaciones u on u.id_ubicaciones = s.ubicaciones_fk where u.ubicacion = :ubicacion",
-            nativeQuery = true
+        )
+        List<Suministros> findUbicacion(@Param("ubicacion") String ubicacion);
 
-    )
-    List<Suministros> findUbicacion(@Param("ubicacion") String ubicacion);
-    
 }

@@ -40,23 +40,25 @@ public class SuministroController {
         return suministroSvc.addSuministros(suministros);
     }
 
-    @GetMapping(value = "/findTipoSumunistro/{id}" , produces = MediaType.APPLICATION_JSON_VALUE)
-    public responseApi findTipoSumunistro (@PathVariable("id") String name){
-       return suministroSvc.findTipoSumunistro(name);
+    @GetMapping(value = "/findTipoSumunistro/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi findTipoSumunistro(@PathVariable("id") String name) {
+        return suministroSvc.findTipoSumunistro(name);
     }
 
-    @GetMapping(value = "/findEstado/{estado}" , produces = MediaType.APPLICATION_JSON_VALUE)
-    public responseApi findEstado (@PathVariable("estado") String estado){
+    @GetMapping(value = "/findEstado/{estado}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi findEstado(@PathVariable("estado") String estado) {
         return suministroSvc.findEstado(estado);
     }
 
-    @GetMapping(value = "/findUbicacion/{ubicacion}" , produces = MediaType.APPLICATION_JSON_VALUE)
-    public responseApi findUbicacion (@PathVariable("ubicacion") String ubicacion){
+    @GetMapping(value = "/findUbicacion/{ubicacion}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi findUbicacion(@PathVariable("ubicacion") String ubicacion) {
         return suministroSvc.findUbicacion(ubicacion);
     }
 
-    @PutMapping(value = "/changeStatus/{id}" , produces = MediaType.APPLICATION_JSON_VALUE)
-    public responseApi changeLocation (@RequestBody Suministros suministros ,  @PathVariable("id") int id){
-        return suministroSvc.changeStatus(suministros ,id);
-    }
+    // @PutMapping(value = "/changeStatus/{id}" , produces =
+    // MediaType.APPLICATION_JSON_VALUE)
+    // public responseApi changeLocation (@RequestBody Suministros suministros ,
+    // @PathVariable("id") int id){
+    // return suministroSvc.changeStatus(suministros ,id);
+    // }
 }

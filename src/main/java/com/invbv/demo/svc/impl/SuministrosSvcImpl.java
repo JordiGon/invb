@@ -75,30 +75,24 @@ public class SuministrosSvcImpl implements SuministroSvc {
         }
     }
 
-    @Override
-    public responseApi changeStatus(Suministros suministros , int id) {
-        try {
-            Optional <Suministros> suministros1 = this.suministroDao.findByDbid(id);
-            Suministros suministros2 = suministros1.get();
-            suministros2.setNombreSuministro(suministros.getNombreSuministro());
-            suministros2.setCantidadSuministro(suministros.getCantidadSuministro());
-            suministros2.setDescripcionSuministro(suministros.getDescripcionSuministro());
-            suministros2.setValorUnitarioSuminstro(suministros.getValorUnitarioSuminstro());
-            suministros2.setDonacionSuministro(suministros.getDonacionSuministro());
-            suministros2.setTipoSuministro(suministros.getTipoSuministro());
-            suministros2.setEstado(suministros.getEstado());
-            suministros2.setCatSuministro(suministros.getCatSuministro());
-            Suministros suministros3 = suministroDao.save(suministros2);
+    // @Override
+    // public responseApi changeStatus(Suministros suministros , int id) {
+    // try {
+    // Optional <Suministros> suministros1 = this.suministroDao.findByDbid(id);
+    // Suministros suministros2 = suministros1.get();
+    // suministros2.setNombreSuministro(suministros.getNombreSuministro());
+    // suministros2.setCantidadSuministro(suministros.getCantidadSuministro());
+    // suministros2.setDescripcionSuministro(suministros.getDescripcionSuministro());
+    // suministros2.setValorUnitarioSuminstro(suministros.getValorUnitarioSuminstro());
+    // suministros2.setDonacionSuministro(suministros.getDonacionSuministro());
+    // suministros2.setTipoSuministro(suministros.getTipoSuministro());
+    // suministros2.setEstado(suministros.getEstado());
+    // suministros2.setCatSuministro(suministros.getCatSuministro());
+    // Suministros suministros3 = suministroDao.save(suministros2);
 
-
-
-
-
-            return new responseApi(200, "Success Query", suministros3);
-        } catch (Exception e) {
-            return new responseApi(500, "Unsuccessfull Query", e);
-        }
-    }
+    // return new responseApi(200, "Success Query", suministros3);
+    // } catch (Exception e) {
+    // return new responseApi(500, "Unsuccessfull Query", e);
+    // }
+    // }
 }
-
-
