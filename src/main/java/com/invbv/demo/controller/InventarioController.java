@@ -28,4 +28,12 @@ public class InventarioController {
         return inventarioSvc.updateEstado(id_inventario, cantidad, estado);
     }
 
+    @PostMapping(value = "/add/{suministro}/{cantidad}/{estado}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi addInventario(
+            @PathVariable(name = "suministro") Integer id_suministro,
+            @PathVariable(name = "cantidad") Integer cantidad,
+            @PathVariable(name = "estado") Integer estado) {
+        return inventarioSvc.addInventory(id_suministro, cantidad, estado);
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.invbv.demo.svc.impl;
 
+import java.lang.StackWalker.Option;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.invbv.demo.dao.inter.EstadoDao;
 import com.invbv.demo.dao.inter.InventarioDao;
+import com.invbv.demo.dao.inter.SuministroDao;
 import com.invbv.demo.model.Estado;
 import com.invbv.demo.model.Inventario;
+import com.invbv.demo.model.Suministros;
 import com.invbv.demo.model.responseApi;
 import com.invbv.demo.svc.inter.InventarioSvc;
 
@@ -19,6 +22,8 @@ public class InventarioSvcImpl implements InventarioSvc {
     InventarioDao inventarioDao;
     @Autowired
     EstadoDao estadoDao;
+    @Autowired
+    SuministroDao dao;
 
     @Override
     public responseApi updateEstado(Integer id_inventario, Integer cantidad, Integer id_estado) {
@@ -57,4 +62,34 @@ public class InventarioSvcImpl implements InventarioSvc {
         }
     }
 
+    @Override
+    public responseApi addInventory(Integer id_suministro, Integer cantidad, Integer id_estado) {
+        try {
+            Inventario exist = inventarioDao.getInventoryByEstado(id_estado,
+                    id_suministro);
+            // System.out.println("EXISTEEEEEEEEEEEEEEEEEEE??");
+            // System.out.println(exist);
+            Inventario update;
+            if (exist != null) {
+                // si existe, actualizo cantidades
+                Integer actual = exist.getCantidadSuministro();
+                exist.setCantidadSuministro(cantidad + actual);
+                update = inventarioDao.updateInventory(exist);
+            } else {
+                // sino existe, creo uno nuevo
+                Inventario created = new Inventario();
+                Optional<Estado> state = estadoDao.getEstado(id_estado);
+                Optional<Suministros> sum = dao.findByDbid(id_suministro);
+                created.setEstado(state.get());
+                created.setSuministros(sum.get());
+                created.setCantidadSuministro(cantidad);
+                update = inventarioDao.createInventory(created);
+            }
+
+            return new responseApi(200, "Inventario actualizado: ", update);
+        } catch (Exception e) {
+            return new responseApi(500, "No se encontro registros", e);
+        }
+
+    }
 }
