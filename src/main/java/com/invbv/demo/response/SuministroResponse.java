@@ -37,4 +37,6 @@ public class SuministroResponse {
     private String categoria;
     @Column(name = "ubicacion")
     private String ubicacion;
+    @Column(name = "idsuministro_fk")
+    private Integer idsuministro;
 }

@@ -20,7 +20,8 @@ public interface SuministroResponseRepository extends JpaRepository<SuministroRe
             "donacion_sum as donacion, " +
             "valor_unitario_sum as valor_unitario, " +
             "descripcion_cat_sum as categoria, " +
-            "ubicacion " +
+            "ubicacion , " +
+            "idsuministro_fk " +
             "FROM inventory.inventario a " +
             "INNER JOIN inventory.suministros b ON a.idsuministro_fk = b.id_suministros " +
             "INNER JOIN inventory.estados c ON  a.idestados_fk = c.id_estados " +
