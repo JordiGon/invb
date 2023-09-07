@@ -1,13 +1,8 @@
 package com.invbv.demo.controller;
 
 import com.invbv.demo.model.Producto;
-import com.invbv.demo.model.Roles;
-import com.invbv.demo.model.Suministros;
 import com.invbv.demo.model.responseApi;
 import com.invbv.demo.svc.inter.ProductoSvc;
-import com.invbv.demo.svc.inter.SuministroSvc;
-import com.invbv.demo.svc.inter.TipoSuministroSvc;
-import com.invbv.demo.svc.inter.UbicacionSvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;

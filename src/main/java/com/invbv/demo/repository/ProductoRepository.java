@@ -1,7 +1,6 @@
 package com.invbv.demo.repository;
 
 import com.invbv.demo.model.Producto;
-import com.invbv.demo.model.Suministros;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
