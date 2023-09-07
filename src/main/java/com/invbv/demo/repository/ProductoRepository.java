@@ -16,7 +16,7 @@ public interface ProductoRepository extends JpaRepository<Producto, Integer> {
             nativeQuery = true
 
     )
-    List<Suministros> findbynombre(@Param("name") String name);
+    List<Producto> findbynombre(@Param("name") String name);
 
 
     @Query(
@@ -24,13 +24,13 @@ public interface ProductoRepository extends JpaRepository<Producto, Integer> {
             nativeQuery = true
 
     )
-    List<Suministros> findEstado(@Param("estado") String estado);
+    List<Producto> findEstado(@Param("estado") String estado);
 
     @Query(
             value = "select * from inventory.suministros s inner join inventory.ubicaciones u on u.id_ubicaciones = s.ubicaciones_fk where u.ubicacion = :ubicacion",
             nativeQuery = true
 
     )
-    List<Suministros> findUbicacion(@Param("ubicacion") String ubicacion);
+    List<Producto> findUbicacion(@Param("ubicacion") String ubicacion);
 
 }
