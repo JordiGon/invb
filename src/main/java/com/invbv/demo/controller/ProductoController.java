@@ -21,31 +21,6 @@ public class ProductoController {
         return productoSvc.findAll();
     }
 
-    @PostMapping(value = "/save", produces = MediaType.APPLICATION_JSON_VALUE)
-    public responseApi guardarUsuario(@RequestBody Producto producto) {
-
-        return productoSvc.addSuministros(producto);
-    }
-
-    @GetMapping(value = "/findProducto/{id}" , produces = MediaType.APPLICATION_JSON_VALUE)
-    public responseApi findProducto (@PathVariable("id") String name){
-        return productoSvc.findProducto(name);
-    }
-
-    @GetMapping(value = "/findEstado/{estado}" , produces = MediaType.APPLICATION_JSON_VALUE)
-    public responseApi findEstado (@PathVariable("estado") String estado){
-        return productoSvc.findEstado(estado);
-    }
-
-    @GetMapping(value = "/findUbicacion/{ubicacion}" , produces = MediaType.APPLICATION_JSON_VALUE)
-    public responseApi findUbicacion (@PathVariable("ubicacion") String ubicacion){
-        return productoSvc.findUbicacion(ubicacion);
-    }
-
-    @PutMapping(value = "/changeStatus/{id}" , produces = MediaType.APPLICATION_JSON_VALUE)
-    public responseApi changeLocation (@RequestBody Producto producto ,  @PathVariable("id") int id){
-        return productoSvc.changeStatus(producto ,id);
-    }
 
 
 }

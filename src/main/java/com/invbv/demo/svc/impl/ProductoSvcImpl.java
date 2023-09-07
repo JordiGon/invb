@@ -30,28 +30,4 @@ public class ProductoSvcImpl implements ProductoSvc {
         }
     }
 
-    @Override
-    public responseApi addSuministros(Producto producto) {
-        return null;
-    }
-
-    @Override
-    public responseApi findProducto(String name) {
-        return null;
-    }
-
-    @Override
-    public responseApi findEstado(String estado) {
-        return null;
-    }
-
-    @Override
-    public responseApi findUbicacion(String producto) {
-        return null;
-    }
-
-    @Override
-    public responseApi changeStatus(Producto producto, int id) {
-        return null;
-    }
 }

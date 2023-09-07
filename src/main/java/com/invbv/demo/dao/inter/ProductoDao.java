@@ -8,12 +8,4 @@ public interface ProductoDao {
 
 
     List<Producto> findAll();
-    public Producto save (Producto producto);
-
-    List<Producto> findProducto(String name);
-    List<Producto> findEstado(String estado);
-
-    List<Producto> findUbicacion(String ubicacion);
-
-    Optional<Producto> findByDbid (int id);
 }
