@@ -8,7 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/cargo")
+@RequestMapping("/producto")
 
 public class ProductoController {
 
@@ -19,6 +19,23 @@ public class ProductoController {
     public responseApi findAll() {
 
         return productoSvc.findAll();
+    }
+
+    @PostMapping(value = "/save", produces = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi guardarProducto(@RequestBody Producto producto) {
+
+        return productoSvc.addProducto(producto);
+    }
+
+    @PutMapping(value = "/changeProduct/{id}" , produces = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi changeProduct (@RequestBody Producto producto ,  @PathVariable("id") int id){
+        return productoSvc.changeProduct(producto ,id);
+    }
+
+
+    @GetMapping(value = "/findProduct/{name}" , produces = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi findProduct (@PathVariable("name") String name){
+        return productoSvc.findProduct(name);
     }
 
 
