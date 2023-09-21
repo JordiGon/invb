@@ -2,15 +2,11 @@ package com.invbv.demo.dao.impl;
 
 
 import com.invbv.demo.dao.inter.IngredientesDao;
-import com.invbv.demo.dao.inter.ProductoDao;
 import com.invbv.demo.model.Ingredientes;
-import com.invbv.demo.model.Producto;
 
 import java.util.List;
 import java.util.Optional;
-
 import com.invbv.demo.repository.IngredientesRepository;
-import com.invbv.demo.repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

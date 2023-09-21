@@ -4,11 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import com.invbv.demo.dao.inter.IngredientesDao;
-import com.invbv.demo.dao.inter.ProductoDao;
 import com.invbv.demo.model.Ingredientes;
-import com.invbv.demo.model.Producto;
 import com.invbv.demo.svc.inter.IngredientesSvc;
-import com.invbv.demo.svc.inter.ProductoSvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.swing.text.html.Option;
