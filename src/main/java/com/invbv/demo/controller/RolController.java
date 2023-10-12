@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/rol")
+@CrossOrigin("*")
 public class RolController {
 
     @Autowired
