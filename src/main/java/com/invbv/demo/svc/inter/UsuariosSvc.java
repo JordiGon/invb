@@ -5,4 +5,6 @@ import com.invbv.demo.model.responseApi;
 public interface UsuariosSvc {
 
     public responseApi findAll();
+
+    responseApi findUser(String name , String password);
 }

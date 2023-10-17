@@ -1,6 +1,8 @@
 package com.invbv.demo.controller;
 
 
+import com.invbv.demo.model.Producto;
+import com.invbv.demo.model.Rol;
 import com.invbv.demo.model.responseApi;
 import com.invbv.demo.svc.inter.RolSvc;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,5 +21,11 @@ public class RolController {
     public responseApi findAll() {
 
         return rolSvc.findAll();
+    }
+
+    @PostMapping(value = "/save", produces = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi guardarRol(@RequestBody Rol rol) {
+
+        return rolSvc.addRol(rol);
     }
 }

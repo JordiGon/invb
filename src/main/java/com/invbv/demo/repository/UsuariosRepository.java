@@ -10,4 +10,12 @@ import java.util.List;
 
 @Repository
 public interface UsuariosRepository extends  JpaRepository<Usuario , Integer>{
+
+
+    @Query(
+            value = "SELECT * FROM Usuarios WHERE Nombre_Usuario = :name AND CONTRASEÑA = :password",
+            nativeQuery = true
+
+    )
+    Usuario findUser(@Param("name") String name , @Param("password") String password);
 }

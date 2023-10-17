@@ -30,4 +30,9 @@ public class RolDaoImpl implements RolDao {
     public List<Rol> findAll() {
         return rolRepository.findAll();
     }
+
+    @Override
+    public Rol save(Rol rol) {
+        return rolRepository.save(rol);
+    }
 }

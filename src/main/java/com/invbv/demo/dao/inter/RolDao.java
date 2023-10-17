@@ -9,4 +9,6 @@ import java.util.Optional;
 public interface RolDao {
 
     List<Rol> findAll();
+
+    Rol save(Rol rol);
 }

@@ -32,4 +32,14 @@ public class RolSvcImpl implements RolSvc {
             return new responseApi(500, "Unsuccessfull Query", e);
         }
     }
+
+    @Override
+    public responseApi addRol(Rol rol) {
+        try {
+            Rol rol1 = rolDao.save(rol);
+            return new responseApi(200, "Rol insertado corectamente: ", rol1);
+        } catch (Exception e) {
+            return new responseApi(500, "No se pudo insertar producto", e);
+        }
+    }
 }

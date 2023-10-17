@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/usuarios")
+@CrossOrigin("*")
 public class UsuariosController {
 
     @Autowired
@@ -20,6 +21,11 @@ public class UsuariosController {
     public responseApi findAll() {
 
         return usuariosSvc.findAll();
+    }
+
+    @GetMapping(value = "/login/username/{name}/password/{password}" , produces = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi findProduct (@PathVariable("name") String name , @PathVariable("password") String password){
+        return usuariosSvc.findUser(name , password);
     }
 
 
