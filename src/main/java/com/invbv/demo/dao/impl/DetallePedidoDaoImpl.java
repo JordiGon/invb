@@ -17,4 +17,9 @@ public class DetallePedidoDaoImpl implements DetallePedidoDao {
     public List<DetallePedido> findAll() {
         return detallePedidoRepository.findAll();
     }
+
+    @Override
+    public DetallePedido save(DetallePedido detallePedido) {
+        return detallePedidoRepository.save(detallePedido);
+    }
 }
