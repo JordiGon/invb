@@ -12,4 +12,6 @@ public interface DetallePedidoDao {
     List<DetallePedido> findAll();
 
     DetallePedido save(DetallePedido detallePedido);
+
+    Optional<DetallePedido> findByDbid(int id);
 }

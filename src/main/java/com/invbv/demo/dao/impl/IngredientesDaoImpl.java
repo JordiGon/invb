@@ -30,4 +30,9 @@ public class IngredientesDaoImpl implements IngredientesDao {
     public List<Ingredientes> findIngredient(String name) {
         return ingredientesRepository.findIngredientbyName(name);
     }
+
+    @Override
+    public Optional<Ingredientes> findByDbid(int id) {
+        return ingredientesRepository.findById(id);
+    }
 }

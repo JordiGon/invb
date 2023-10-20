@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import javax.swing.text.html.Option;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DetallePedidoSvcImpl implements DetallePedidoSvc {
@@ -36,6 +37,27 @@ public class DetallePedidoSvcImpl implements DetallePedidoSvc {
             return new responseApi(200, "Rol insertado corectamente: ", detallePedido1);
         } catch (Exception e) {
             return new responseApi(500, "No se pudo insertar producto", e);
+        }
+    }
+
+    @Override
+    public responseApi changeDetallePedido(DetallePedido detallePedido, int id) {
+        try {
+            Optional<DetallePedido> detallePedido1 = this.detallePedidoDao.findByDbid(id);
+            DetallePedido detallePedido2 = detallePedido1.get();
+            detallePedido2.setPedido (detallePedido.getPedido());
+            detallePedido2.setProducto(detallePedido.getProducto());
+            detallePedido2.setCantidad(detallePedido.getCantidad());
+            detallePedido2.setDireccionEnvio(detallePedido.getDireccionEnvio());
+            DetallePedido detallePedido3 = detallePedidoDao.save(detallePedido2);
+
+
+
+
+
+            return new responseApi(200, "Success Query", detallePedido3);
+        } catch (Exception e) {
+            return new responseApi(500, "Unsuccessfull Query", e);
         }
     }
 }

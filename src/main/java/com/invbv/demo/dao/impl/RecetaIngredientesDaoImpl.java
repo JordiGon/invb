@@ -20,4 +20,14 @@ public class RecetaIngredientesDaoImpl implements RecetaIngredientesDao {
     public List<RecetaIngredientes> findAll() {
         return recetaIngredientesRepository.findAll();
     }
+
+    @Override
+    public RecetaIngredientes save(RecetaIngredientes recetaIngredientes) {
+        return recetaIngredientesRepository.save(recetaIngredientes);
+    }
+
+    @Override
+    public Optional<RecetaIngredientes> findByDbid(int id) {
+        return recetaIngredientesRepository.findById(id);
+    }
 }

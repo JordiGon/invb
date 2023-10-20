@@ -1,6 +1,7 @@
 package com.invbv.demo.svc.inter;
 
 
+import com.invbv.demo.model.DetallePedido;
 import com.invbv.demo.model.Ingredientes;
 import com.invbv.demo.model.responseApi;
 public interface IngredientesSvc {
@@ -10,5 +11,7 @@ public interface IngredientesSvc {
     public responseApi saveIngredient(Ingredientes ingredientes);
 
     public responseApi findIngredient(String name);
+
+    public  responseApi changeIngrediente(Ingredientes ingredientes , int id);
 
 }

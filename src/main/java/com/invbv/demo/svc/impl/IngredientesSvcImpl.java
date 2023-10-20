@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.invbv.demo.dao.inter.IngredientesDao;
+import com.invbv.demo.model.DetallePedido;
 import com.invbv.demo.model.Ingredientes;
 import com.invbv.demo.svc.inter.IngredientesSvc;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,24 @@ public class IngredientesSvcImpl implements IngredientesSvc {
         try {
             List<Ingredientes> ingredientes = ingredientesDao.findIngredient(name);
             return new responseApi(200, "Success Query", ingredientes);
+        } catch (Exception e) {
+            return new responseApi(500, "Unsuccessfull Query", e);
+        }
+    }
+
+    @Override
+    public responseApi changeIngrediente(Ingredientes ingredientes, int id) {
+        try {
+            Optional<Ingredientes> ingredientes1 = this.ingredientesDao.findByDbid(id);
+            Ingredientes ingredientes2 = ingredientes1.get();
+            ingredientes2.setNombreIngrediente(ingredientes.getNombreIngrediente());
+            Ingredientes ingredientes3 = ingredientesDao.save(ingredientes2);
+
+
+
+
+
+            return new responseApi(200, "Success Query", ingredientes3);
         } catch (Exception e) {
             return new responseApi(500, "Unsuccessfull Query", e);
         }

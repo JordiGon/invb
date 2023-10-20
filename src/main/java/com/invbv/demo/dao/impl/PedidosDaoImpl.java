@@ -25,4 +25,14 @@ public class PedidosDaoImpl implements PedidosDao {
     public List<Pedidos> findAll() {
         return pedidosRepository.findAll();
     }
+
+    @Override
+    public Pedidos save(Pedidos pedidos) {
+        return pedidosRepository.save(pedidos);
+    }
+
+    @Override
+    public Optional<Pedidos> findByDbid(int id) {
+        return pedidosRepository.findById(id);
+    }
 }

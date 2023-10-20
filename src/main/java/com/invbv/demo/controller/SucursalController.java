@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/sucursal")
+@CrossOrigin("*")
 public class SucursalController {
 
     @Autowired

@@ -17,4 +17,14 @@ public class RecetaDaoImpl implements RecetaDao {
     public List<Receta> findAll() {
         return recetaRepository.findAll();
     }
+
+    @Override
+    public Receta save(Receta receta) {
+        return recetaRepository.save(receta);
+    }
+
+    @Override
+    public Optional<Receta> findByDbid(int id) {
+        return recetaRepository.findById(id);
+    }
 }

@@ -1,6 +1,7 @@
 package com.invbv.demo.controller;
 
 import com.invbv.demo.model.DetallePedido;
+import com.invbv.demo.model.Producto;
 import com.invbv.demo.model.Rol;
 import com.invbv.demo.model.responseApi;
 import com.invbv.demo.svc.inter.DetallePedidoSvc;
@@ -29,5 +30,10 @@ public class DetallePedidoController {
     public responseApi guardarDetallePedido(@RequestBody DetallePedido detallePedido) {
 
         return detallePedidoSvc.adddetallePedido(detallePedido);
+    }
+
+    @PutMapping(value = "/changeDetallePedido/{id}" , produces = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi changeDetallePedido (@RequestBody DetallePedido detallePedido , @PathVariable("id") int id){
+        return detallePedidoSvc.changeDetallePedido(detallePedido ,id);
     }
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/estado")
+@CrossOrigin("*")
 public class EstadoController {
 
     @Autowired

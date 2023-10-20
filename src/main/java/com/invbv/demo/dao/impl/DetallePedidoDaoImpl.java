@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DetallePedidoDaoImpl implements DetallePedidoDao {
@@ -21,5 +22,10 @@ public class DetallePedidoDaoImpl implements DetallePedidoDao {
     @Override
     public DetallePedido save(DetallePedido detallePedido) {
         return detallePedidoRepository.save(detallePedido);
+    }
+
+    @Override
+    public Optional<DetallePedido> findByDbid(int id) {
+        return detallePedidoRepository.findById(id);
     }
 }
