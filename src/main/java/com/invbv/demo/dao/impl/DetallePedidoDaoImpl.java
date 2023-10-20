@@ -28,4 +28,10 @@ public class DetallePedidoDaoImpl implements DetallePedidoDao {
     public Optional<DetallePedido> findByDbid(int id) {
         return detallePedidoRepository.findById(id);
     }
+
+    @Override
+    public List<DetallePedido> findDetalle(int id) {
+        List<DetallePedido> pedidos = detallePedidoRepository.findbynombre(id);
+        return pedidos;
+    }
 }

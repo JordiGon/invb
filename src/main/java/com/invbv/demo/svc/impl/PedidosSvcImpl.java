@@ -1,5 +1,6 @@
 package com.invbv.demo.svc.impl;
 
+import com.invbv.demo.dao.inter.DetallePedidoDao;
 import com.invbv.demo.dao.inter.PedidosDao;
 import com.invbv.demo.model.*;
 import com.invbv.demo.svc.inter.PedidosSvc;
@@ -19,6 +20,10 @@ public class PedidosSvcImpl implements PedidosSvc {
 
     @Autowired
     PedidosDao pedidosDao;
+
+    @Autowired
+    DetallePedidoDao detallePedidoDao;
+
 
     @Override
     public responseApi findAll() {
@@ -55,6 +60,16 @@ public class PedidosSvcImpl implements PedidosSvc {
 
 
             return new responseApi(200, "Success Query", pedidos3);
+        } catch (Exception e) {
+            return new responseApi(500, "Unsuccessfull Query", e);
+        }
+    }
+
+    @Override
+    public responseApi findDetalle(int name) {
+        try {
+            List<DetallePedido> detallePedidos = detallePedidoDao.findDetalle(name);
+            return new responseApi(200, "Success Query", detallePedidos);
         } catch (Exception e) {
             return new responseApi(500, "Unsuccessfull Query", e);
         }

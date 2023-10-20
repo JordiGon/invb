@@ -11,4 +11,6 @@ public interface PedidosSvc {
     responseApi guardarPedido(Pedidos pedidos);
 
     public  responseApi changePedido(Pedidos pedidos , int id);
+
+    public  responseApi findDetalle(int name);
 }

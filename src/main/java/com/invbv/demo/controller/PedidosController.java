@@ -37,4 +37,10 @@ public class PedidosController {
     }
 
 
+    @GetMapping(value = "/findDetalle/{id}" , produces = MediaType.APPLICATION_JSON_VALUE)
+    public responseApi findProduct (@PathVariable("id") int id){
+        return pedidosSvc.findDetalle(id);
+    }
+
+
 }
