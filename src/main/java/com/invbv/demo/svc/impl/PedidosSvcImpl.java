@@ -48,18 +48,34 @@ public class PedidosSvcImpl implements PedidosSvc {
     @Override
     public responseApi changePedido(Pedidos pedidos, int id) {
         try {
+
+
+            if(pedidos.getEstado().getIdEstado()  == 2){
             Optional<Pedidos> pedidos1 = this.pedidosDao.findByDbid(id);
             Pedidos pedidos2 = pedidos1.get();
             pedidos2.setSucursal (pedidos.getSucursal());
             pedidos2.setFechaPedido(pedidos.getFechaPedido());
             pedidos2.setEstado(pedidos.getEstado());
             Pedidos pedidos3 = pedidosDao.save(pedidos2);
+            List<DetallePedido> detallePedidos = detallePedidoDao.findDetalle(id);
+            for (DetallePedido det : detallePedidos){
+                if(det.getProducto().getStock() <= 0){
+                    return null;
+                }
+            }
 
+                return new responseApi(200, "Success Query", pedidos3);
+            }
 
-
-
-
+            Optional<Pedidos> pedidos1 = this.pedidosDao.findByDbid(id);
+            Pedidos pedidos2 = pedidos1.get();
+            pedidos2.setSucursal (pedidos.getSucursal());
+            pedidos2.setFechaPedido(pedidos.getFechaPedido());
+            pedidos2.setEstado(pedidos.getEstado());
+            Pedidos pedidos3 = pedidosDao.save(pedidos2);
             return new responseApi(200, "Success Query", pedidos3);
+
+
         } catch (Exception e) {
             return new responseApi(500, "Unsuccessfull Query", e);
         }

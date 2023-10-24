@@ -26,4 +26,6 @@ public class Producto {
     private String nombreProducto;
     @Column(name = "Tipo")
     private String tipo;
+    @Column(name = "Stock")
+    private Integer stock;
 }
