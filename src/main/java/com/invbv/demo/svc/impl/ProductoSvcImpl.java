@@ -48,6 +48,7 @@ public class ProductoSvcImpl implements ProductoSvc {
             Producto producto2 = producto1.get();
             producto2.setNombreProducto (producto.getNombreProducto());
             producto2.setTipo(producto.getTipo());
+            producto2.setStock(producto.getStock());
             Producto producto3 = productoDao.save(producto2);
 
 
